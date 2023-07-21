@@ -33,16 +33,21 @@ def PID(x):
         PIDvalue = Pvalue + Ivalue + Dvalue
         priError = error
         toError = error + toError
-        print(PIDvalue)
-        res_val = mapping(PIDvalue, 0, 135, 0, 100)
+        res_val = abs(mapping(PIDvalue, -500, 500, 0, 100))
+        if(res_val > 100):
+            res_val = 50
+        print(res_val)
+       
+        
         if x > 10:
-            # LEFT
-            LEFT(res_val)
-        elif x < 10:
             # RIGHT
             RIGHT(res_val)
-        else:
-            FORWARD(50)
+        elif x < 10:
+            # LEFT
+            LEFT(res_val)
+        
+            
+      
 
 
 VideoCap = True
@@ -55,12 +60,18 @@ while True:
         ARUCO_DICT, ARUCO_PARAMS, flag = findAruco(frame)
         distance_pose(
             frame, ARUCO_DICT=ARUCO_DICT, ARUCO_PARAMS=ARUCO_PARAMS)
-        cv2.imshow("Rabbit_Feed", frame)
-        a = ANGLE()
-        if a and flag:
-            PID(a)
-            print(ID())
-            print(a)
+        cv2.imshow("Bot Feed", frame)
+        x,y = CO_ORDINATES()
+        d = DISTANCE()
+        if flag:
+            if x and d>40:
+                PID(x)
+                if(x > -10 and x<10):
+                    FORWARD(50)
+                print(ID())
+                print(x)
+        else:
+            STOP()
 
         if cv2.waitKey(1) == 113:
 

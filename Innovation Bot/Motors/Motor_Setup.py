@@ -8,8 +8,8 @@ AN1 = 15
 DIG1 = 14
 
 # MOTOR RIGHT
-AN2 = 27
-DIG2 = 17
+AN2 = 23
+DIG2 = 18
 
 
 # MOTOR SETUP
@@ -22,10 +22,10 @@ p1 = GPIO.PWM(AN1, 100)			# set pwm for M1		# set pwm for M2
 p2 = GPIO.PWM(AN2, 100)			# set pwm for M3		# set pwm for M4
 
 # "" INITAL VALUE -- STOP ""    # Direction can ignore
-GPIO.output(DIG1, GPIO.LOW)     # Direction can ignore
-GPIO.output(DIG2, GPIO.LOW)
+GPIO.output(DIG1, GPIO.HIGH)     # Direction can ignore
+GPIO.output(DIG2, GPIO.HIGH)
 p1.start(0)                          # set speed for M1 at 0%
-# p2.start(0)
+p2.start(0)
 
 
 def FORWARD(pwm_value):

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Modular Farming Bot | LIVE FEED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>
+		<script src="mqtt.js" type="text/javascript"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Intro -->
+				<section class="intro">
+					<header>
+						<h1>Modular Farming Bot</h1>
+						<p>by Team Technocarts</p>
+						<p><a href="#" class="button primary large"><b>Fertilizing</b></a></p>
+						<p><a href="#" class="button primary large"><b>Seed Planting</b></a></p>
+					</header>
+					<div class="content">
+						<span class="image fill" data-position="center"><img id="bg" src="{{ url_for('video_feed') }}"></span>
+					</div>
+				</section>
+
+			<!-- Section -->
+				<section id="first">
+					<header>
+						<p><h2>Statistics</h2></p>
+						<p><h3>Seed No: ####</h3>
+						<h3>NPK Value: ###</h3>
+						<h3>Battery Level: ###</h3>
+						<h3>WARNING: ###</h3>
+						
+						<input type="reset" value="RESET" class="button primary default" />
+					</header>
+					<div class="content">
+						<p><h3>Select the type of seed</h3></p>
+						<form>
+							<div class="fields">
+								<select name="demo-category" id="demo-category">
+									<option value="0">-</option>
+									<option value="1">Wheet</option>
+									<option value="2">Rice</option>
+									<option value="3">Barley</option>
+								</select>
+							</div>
+							<ul class="actions">
+								<li><input id="seed_tyep" onclick="publishMessage()" type="submit" value="Send Message" class="button" /></li>
+							</ul>
+						</form>
+				</section>
+			
+
+			<!-- Section -->
+				<section>
+					<header>
+						<h2>Get in touch</h2>
+					</header>
+					<footer>
+						<ul class="items">
+							<li>
+								<h3>Website</h3>
+								<a href="https://technocratsrobotics.in/">https://technocratsrobotics.in/</a>
+							</li>
+							<li>
+								<h3>Address</h3>
+								<span>Vellore Institute of Technology, Chennai</span>
+							</li>
+							<li>
+								<h3>Elsewhere</h3>
+								<ul class="icons">
+									<li><a href="https://twitter.com/technocratsr" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/technocratsrobotics/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://www.instagram.com/technocratsrobotics/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://www.linkedin.com/company/technocrats-robotics-vit" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</footer>
+				</section>
+
+			<!-- Copyright -->
+				<div class="copyright">&copy; Technocrats. All rights reserved.</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script type="text/javascript" src="{{ url_for('static', filename='/js/jquery.min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='/js/jquery.scrolly.min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='/js/browser.min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='/js/breakpoints.min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='/js/util.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='/js/main.js') }}"></script>
+
+	</body>
+</html>
